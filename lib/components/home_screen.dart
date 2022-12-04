@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -65,10 +64,10 @@ class _HomeScreenState extends State<HomeScreen> {
           children: [
             Padding(
               padding: const EdgeInsets.all(25),
-              child: Image.network(
-                'https://image.flaticon.com/icons/png/512/115/115101.png',
+              child: Image.asset(
+                'assets/images/gasoline-pump.png',
                 fit: BoxFit.cover,
-                color: const Color.fromRGBO(238, 69, 64, 1),
+                // color: const Color.fromRGBO(238, 69, 64, 1),
                 height: 150,
               ),
             ),
