@@ -1,33 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-// extension FormatterHelper on String {
-//   // static bool isFirst = true;
-//   static const separator = '.'; // Change this to '.' for other locales
-
-//   String formatCurrency(TextEditingController controller) {
-//     return NumberFormat.currency(
-//       customPattern: "#0.###",
-//       symbol: 'R\$',
-//     ).format(controller.text);
-
-//     // String newValue = replaceAll(',', '').replaceAll('.', '');
-//     // if (isEmpty || newValue == '00') {
-//     //   controller.clear();
-//     //   isFirst = true;
-//     // }
-//     // double value1 = double.parse(newValue);
-//     // if (!isFirst) value1 = value1 * 100;
-
-//     // controller.value = TextEditingValue(
-//     //   text: NumberFormat.currency(customPattern: '###,###.##')
-//     //       .format(value1 / 100),
-//     //   selection: TextSelection.collapsed(offset: length),
-//     // );
-//     // return controller.text;
-//   }
-// }
-
 class CustomRowInput extends StatefulWidget {
   const CustomRowInput({
     Key? key,
@@ -55,18 +28,18 @@ class _CustomRowInputState extends State<CustomRowInput> {
             color: Colors.grey[300],
             borderRadius: BorderRadius.circular(8),
           ),
-          child: TextField(
-            maxLength: 5,
-            keyboardType: TextInputType.number,
-            decoration: const InputDecoration(
-              border: InputBorder.none,
-              counterText: '',
+          child: Padding(
+            padding: const EdgeInsets.only(left: 12),
+            child: TextField(
+              maxLength: 5,
+              keyboardType: TextInputType.number,
+              decoration: const InputDecoration(
+                border: InputBorder.none,
+                counterText: '',
+              ),
+              inputFormatters: [CustomMoneyFormatter()],
+              controller: widget.controller,
             ),
-            inputFormatters: [CustomMoneyFormatter()],
-            // onChanged: (text) {
-            //   // text.formatCurrency(widget.controller);
-            // },
-            controller: widget.controller,
           ),
         ),
       ],
